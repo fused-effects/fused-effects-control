@@ -1,0 +1,5 @@
+# fused-effects-control
+
+This package enables interop between the [`fused-effects`](https://github.com/fused-effects/fused-effects) effect system and the [`monad-control`](https://hackage.haskell.org/package/monad-control-1.0.2.3) library. `monad-control` and its [`MonadBaseControl`](https://hackage.haskell.org/package/monad-control-1.0.2.3/docs/Control-Monad-Trans-Control.html#g:4) typeclass are [widely used](https://packdeps.haskellers.com/reverse/monad-control) to provide an "unlifting" functionality compatible with, but more generalizable than, the API provided by [`Control.Exception`](http://hackage.haskell.org/package/base/docs/Control-Exception.html).
+
+Because `fused-effects` carriers are monads and monad transformers, every carrier can trivially be made an instance of `MonadBase`, and most of the standard carriers—`ReaderC`, `WriterC`, `StateC`, etc.—can be made instances of `MonadBaseControl`. In combination with the [`lifted-base`](http://hackage.haskell.org/package/lifted-base) package, this package can be a more powerful replacement for the resource-management effect provided by `Control.Effect.Resource`.
